@@ -1,0 +1,118 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="game-container">
+
+        <!-- Header -->
+        <header class="game-header">
+            <div class="score-card player-card">
+                <div class="player-icon">👤</div>
+                <div>
+                    <p>You</p>
+                    <h2 class="player-score">0</h2>
+                </div>
+            </div>
+
+            <div class="game-title">
+                <h1>Rock <span>Paper</span> Scissors</h1>
+                <p>Choose your move and beat the computer!</p>
+            </div>
+
+            <div class="score-card computer-card">
+                <div class="player-icon">🤖</div>
+                <div>
+                    <p>Computer</p>
+                    <h2 class="computer-score">0</h2>
+                </div>
+            </div>
+        </header>
+
+        <!-- Game choices -->
+        <section class="game-arena">
+
+            <h3>MAKE YOUR MOVE</h3>
+
+            <div class="choices">
+
+                <button class="butt rock move-button" onclick="playGame('rock')">
+                    <img src="images/rock-emoji.png" alt="Rock">
+                    <span>Rock</span>
+                </button>
+
+                <button class="butt paper move-button" onclick="playGame('paper')">
+                    <img src="images/paper-emoji.png" alt="Paper">
+                    <span>Paper</span>
+                </button>
+
+                <button class="butt scissors" onclick="playGame('scissors')">
+                    <img src="images/scissors-emoji.png" alt="Scissors">
+                    <span>Scissors</span>
+                </button>
+
+            </div>
+
+            <!-- Game result -->
+            <div class="result-area">
+                <p class="js-result result">Make your first move!</p>
+                <p class="js-choices"></p>
+            </div>
+
+        </section>
+
+        <!-- Statistics -->
+        <section class="statistics">
+
+            <div class="stat">
+                <span>🏆</span>
+                <div>
+                    <p>Wins</p>
+                    <h2 class="wins-count">0</h2>
+                </div>
+            </div>
+
+            <div class="stat">
+                <span>❌</span>
+                <div>
+                    <p>Losses</p>
+                    <h2 class="losses-count">0</h2>
+                </div>
+            </div>
+
+            <div class="stat">
+                <span>🤝</span>
+                <div>
+                    <p>Ties</p>
+                    <h2 class="ties-count">0</h2>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Score display -->
+        <p class="js-score score-display"></p>
+
+        <!-- Reset button -->
+        <button class="rest" onclick="
+            score.wins = 0;
+            score.losses = 0;
+            score.ties = 0;
+            update();
+        ">
+            ↻ Reset Score
+        </button>
+
+    </main>
+
+    <script src="game.js"></script>
+
+</body>
+</html>
