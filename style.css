@@ -123,9 +123,11 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    flex-shrink: 0;
+    aspect-ratio: 1 / 1;
     gap: 12px;
     cursor: pointer;
-    transition: 5s ease;
+    transition: 0.6s ease;
 }
 
 .butt img {
@@ -172,7 +174,6 @@ body {
 .scissors:hover {
     box-shadow: 0 0 35px #ff9d24;
 }
-.
 
 /* RESULT AREA */
 
@@ -300,10 +301,6 @@ body {
 }
 
 @media (max-width: 420px) {
-    .move-button{
-        height: 50px;
-    }
-
     .statistics {
         gap: 12px;
         padding: 15px 10px;
