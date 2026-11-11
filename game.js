@@ -1,6 +1,20 @@
     const score = JSON.parse(localStorage.getItem('score')) || { wins: 0, losses: 0, ties: 0 };
         update();
         //  
+        let isAutoPlaying = false;
+        let intervalId;
+        function autoPlay(){
+            if (!isAutoPlaying){
+                intervalId = setInterval(function(){
+                    const playerMove = pickComputerMove();
+                    playGame(playerMove);
+                }, 1000);
+                isAutoPlaying = true;
+            } else {
+                clearInterval(intervalId);
+                isAutoPlaying = false;
+            }
+        }
         function playGame(playerMove){
             pickComputerMove();
             let result;
@@ -12,7 +26,7 @@
                     result = 'You Win';
                 }
                 else if(computerChoice === 'scissors'){
-                    result = 'Tie.';
+                    result = 'Tie';
                 }
             } else if (playerMove === 'paper'){
                 if(computerChoice === 'rock'){
@@ -62,7 +76,9 @@
             else if(mathNumber > 2/3 && mathNumber < 1){
                 computerChoice = 'scissors';
             }
+            return computerChoice;
         }
+
         function update(){
             document.querySelector('.wins-count').innerHTML = score.wins;
             document.querySelector('.losses-count').innerHTML = score.losses;
@@ -70,5 +86,6 @@
             document.querySelector('.player-score').innerHTML = score.wins;
             document.querySelector('.computer-score').innerHTML = score.losses;
         }
+
 
     
